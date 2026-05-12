@@ -1,0 +1,23 @@
+**/node_modules
+
+docs/.vuepress/.cache
+docs/.vuepress/.temp
+docs/.vuepress/dist
+
+.DS_Store
+*.log
+*.tmp
+*.swp
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# IDE / Editor
+.vscode/
+.idea/
+
+# OS files (Windows / macOS)
+Thumbs.db
+Desktop.ini
