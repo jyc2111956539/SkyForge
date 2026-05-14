@@ -5,13 +5,6 @@
     </div>
 
     <div class="rl-row">
-      <span class="rl-label">文件类型</span>
-      <button v-for="item in typeOptions" :key="item.value" class="rl-btn" :class="{ active: fileType === item.value }" @click="fileType = item.value">
-        {{ item.label }}
-      </button>
-    </div>
-
-    <div class="rl-row">
       <span class="rl-label">主模块</span>
       <button v-for="item in moduleOptions" :key="item.value" class="rl-btn" :class="{ active: moduleFilter === item.value }" @click="moduleFilter = item.value">
         {{ item.label }}
@@ -25,10 +18,10 @@
       </button>
     </div>
 
-    <div class="rl-summary">共 {{ filteredItems.length }} 份资料</div>
+    <div class="rl-summary">共 {{ filteredItems.length }} 份资料 · 第 {{ currentPage }} / {{ totalPages }} 页</div>
 
     <div class="rl-list">
-      <div v-for="item in filteredItems" :key="item.id" class="rl-item">
+      <div v-for="item in pagedItems" :key="item.id" class="rl-item">
         <div class="rl-main">
           <div class="rl-head">
             <span class="chip">{{ item.format }}</span>
@@ -43,11 +36,17 @@
         </div>
       </div>
     </div>
+
+    <div class="rl-pagination">
+      <button class="rl-btn" :disabled="currentPage <= 1" @click="currentPage = currentPage - 1">上一页</button>
+      <span class="rl-page-indicator">{{ currentPage }} / {{ totalPages }}</span>
+      <button class="rl-btn" :disabled="currentPage >= totalPages" @click="currentPage = currentPage + 1">下一页</button>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 type Item = {
   id: string
@@ -60,17 +59,11 @@ type Item = {
   url: string
 }
 
-const fileType = ref<'all' | Item['format']>('all')
 const moduleFilter = ref<'all' | string>('all')
 const selectedTags = ref<string[]>([])
 const keyword = ref('')
-
-const typeOptions = [
-  { label: '全部', value: 'all' },
-  { label: 'PDF', value: 'PDF' },
-  { label: 'DOCX', value: 'DOCX' },
-  { label: 'ZIP', value: 'ZIP' },
-] as const
+const currentPage = ref(1)
+const pageSize = 9
 
 const moduleOptions = [
   { label: '全部', value: 'all' },
@@ -94,9 +87,8 @@ const items: Item[] = [
 
 const baseItems = computed(() =>
   items.filter((item) => {
-    const typeOk = fileType.value === 'all' || item.format === fileType.value
     const moduleOk = moduleFilter.value === 'all' || item.module === moduleFilter.value
-    return typeOk && moduleOk
+    return moduleOk
   }),
 )
 
@@ -119,4 +111,17 @@ const toggleTag = (tag: string) => {
 }
 
 const filteredItems = computed(() => searchedItems.value.filter((i) => selectedTags.value.every((t) => i.tags.includes(t))))
+const totalPages = computed(() => Math.max(1, Math.ceil(filteredItems.value.length / pageSize)))
+const pagedItems = computed(() => {
+  const start = (currentPage.value - 1) * pageSize
+  return filteredItems.value.slice(start, start + pageSize)
+})
+
+watch([moduleFilter, selectedTags, keyword], () => {
+  currentPage.value = 1
+})
+
+watch(filteredItems, () => {
+  if (currentPage.value > totalPages.value) currentPage.value = totalPages.value
+})
 </script>

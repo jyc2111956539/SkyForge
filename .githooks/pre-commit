@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+echo "[pre-commit] Running encoding check..."
+npm run -s check:encoding

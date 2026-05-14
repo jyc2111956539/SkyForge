@@ -6,10 +6,12 @@
   "author": "Chingan <2111956539@qq.com>",
   "license": "MIT",
   "scripts": {
+    "check:encoding": "node scripts/check-encoding.mjs",
     "docs:build": "vuepress build docs --clean-cache --clean-temp",
     "docs:dev": "vuepress dev docs",
     "docs:dev-clean": "vuepress dev docs --clean-cache --clean-temp",
     "docs:preview": "http-server docs/.vuepress/dist",
+    "hooks:install": "node scripts/install-hooks.mjs",
     "vp-update": "npx vp-update"
   },
   "devDependencies": {

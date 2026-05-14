@@ -1,26 +1,40 @@
 ﻿---
 title: 技术教程
-pageClass: tutorials-hub
 createTime: 2026/05/11 15:42:39
 permalink: /tutorials/
 comments: false
 ---
 
 # 技术教程
-这里聚焦系统化学习内容（教程文章与实战案例）。
 
-<div class="tutorial-quick-grid">
-  <a class="quick-card" href="/tutorials/stm32/">
-    <h3>教程文章库</h3>
-    <p>面向学习路径的连续内容，覆盖 STM32、ESP32、Arduino、ARM 等方向。</p>
-  </a>
-  <a class="quick-card" href="/tutorials/circuit/">
-    <h3>电路专题教程</h3>
-    <p>以电路设计为主的教程专题，偏方法讲解与案例拆解，不承载下载型资料。</p>
-  </a>
-</div>
+技术教程采用“系列目录 + 文章”形式组织，先选系列，再进入目录逐篇学习。
 
-> 下载型文件（PDF/DOCX/ZIP）已统一迁移到 [技术资料库](/resources/)。
+<VPCardGrid>
+  <VPLinkCard
+    title="STM32 系列"
+    desc="从入门到实战，覆盖开发环境、GPIO、串口与工程实践。"
+    href="/tutorials/stm32/"
+  />
+  <VPLinkCard
+    title="Arduino 系列"
+    desc="面向快速验证与原型开发，适合传感器与小项目实践。"
+    href="/tutorials/arduino/"
+  />
+  <VPLinkCard
+    title="ESP32 系列"
+    desc="聚焦联网开发，包含 Wi-Fi、MQTT 与常见连接流程。"
+    href="/tutorials/esp32/"
+  />
+  <VPLinkCard
+    title="ARM 系列"
+    desc="从工具链到启动流程，逐步建立 ARM 开发基础能力。"
+    href="/tutorials/arm/"
+  />
+  <VPLinkCard
+    title="电路设计系列"
+    desc="以原理与设计方法为主，包含滤波、电源、放大与案例拆解。"
+    href="/tutorials/circuit/"
+  />
+</VPCardGrid>
 
-## 内容筛选
-<TutorialFilterGrid />
+> 下载型资料（PDF / DOCX / ZIP）请前往 [技术资料库](/resources/)。

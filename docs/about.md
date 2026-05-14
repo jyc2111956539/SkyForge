@@ -1,6 +1,7 @@
 ﻿---
 title: 关于我们
 permalink: /about/
+comments: false
 ---
 
 # 关于凌云工坊
@@ -56,3 +57,4 @@ permalink: /about/
 - GitHub：`https://github.com/your-username`
 
 你也可以通过站内页面反馈资料失效、链接错误或内容勘误，我们会持续更新。
+

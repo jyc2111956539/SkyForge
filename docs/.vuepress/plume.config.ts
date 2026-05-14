@@ -6,8 +6,9 @@ export default defineThemeConfig({
   navbar: [
     { text: '首页', link: '/' },
     { text: '技术教程', link: '/tutorials/' },
+    { text: '技术文章', link: '/blog/' },
     { text: '技术资料库', link: '/resources/' },
-    { text: '电子设计', link: '/designs/' },
+    { text: '案例实战', link: '/designs/' },
     { text: '周边商城', link: '/store/' },
     { text: '关于我们', link: '/about/' },
   ],
@@ -20,9 +21,15 @@ export default defineThemeConfig({
       link: '/tutorials/',
     },
     {
+      type: 'post',
+      dir: 'blog',
+      title: '技术文章',
+      link: '/blog/',
+    },
+    {
       type: 'doc',
       dir: 'designs',
-      title: '电子设计',
+      title: '案例实战',
       link: '/designs/',
     },
   ],
@@ -40,7 +47,8 @@ export default defineThemeConfig({
     miniSearch: {
       options: {
         extractField: (document: Record<string, unknown>, fieldName: string) => {
-          // Keep only page-level titles (no heading anchors), remove section-level indexing.
+          // Keep index IDs intact; only index page-level titles for searchable content.
+          if (fieldName === 'id') return String(document.id ?? '')
           if (fieldName !== 'title') return ''
           const id = String(document.id ?? '')
           if (id.includes('#')) return ''
@@ -60,13 +68,18 @@ export default defineThemeConfig({
   ],
 
   comment: {
-    provider: 'Waline',
-    serverURL: 'https://your-waline-server.vercel.app',
-    lang: 'zh-CN',
-    pageview: true,
+    provider: 'Giscus',
     comment: true,
-    reaction: false,
-    dark: 'html[data-theme="dark"]',
+    repo: 'jyc2111956539/SkyForge',
+    repoId: 'R_kgDOSbNuCA',
+    category: 'General',
+    categoryId: 'DIC_kwDOSbNuCM4C83S7',
+    mapping: 'pathname',
+    strict: false,
+    reactionsEnabled: true,
+    inputPosition: 'bottom',
+    lang: 'zh-CN',
+    lazyLoading: true,
   },
 
   plugins: {

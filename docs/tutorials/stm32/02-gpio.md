@@ -1,33 +1,25 @@
----
+﻿---
 title: STM32 GPIO 点灯实战
-createTime: 2025/01/03 00:00:00
-updatedAt: 2025/01/03 00:00:00
-platform: STM32
-level: 入门
-series: STM32 系列教程
-order: 2
-tags:
-  - STM32
-  - GPIO
-  - 入门
-permalink: /tutorials/1cv2mwuw/
+createTime: 2025/01/01 00:00:00
+permalink: /tutorials/stm32/02-gpio/
 ---
 
 # STM32 GPIO 点灯实战
 
 ## 你将学到什么
-- GPIO 工作模式与输出控制
-- 点灯程序的最小闭环
+- GPIO 输入输出模式
+- 点灯最小闭环
+- 简单延时与状态切换
 
 ## 硬件准备
 - STM32 开发板
 - LED + 电阻
 
 ## 步骤
-1. 配置 GPIO 口模式。
-2. 编写点灯逻辑并下载运行。
-3. 用示波器或万用表确认引脚状态。
+1. 配置 GPIO 为推挽输出。
+2. 在循环中翻转引脚电平。
+3. 观察 LED 亮灭并调整延时。
 
 ## 常见问题
-- 引脚复用冲突
-- 灯不亮但程序正常运行
+- LED 不亮先检查极性和限流电阻。
+- 若引脚无变化，确认时钟和端口初始化。

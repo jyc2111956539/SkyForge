@@ -21,6 +21,16 @@ npm run docs:preview
 npm run vp-update
 ```
 
+## Encoding Guard
+
+```sh
+# install pre-commit hook once
+npm run hooks:install
+
+# run manual encoding check
+npm run check:encoding
+```
+
 ## Documents
 
 - [vuepress](https://vuepress.vuejs.org/)

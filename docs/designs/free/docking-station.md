@@ -8,6 +8,7 @@ tags:
   - 开源硬件
 excerpt: 四版本OLED显示模块（0.96/1.3寸、I2C/SPI），统一3.3V供电，适配嵌入式状态显示与人机交互
 permalink: /designs/99jitvj6/
+comments: true
 ---
 
 # 0.96/1.3寸OLED模块
@@ -43,6 +44,9 @@ permalink: /designs/99jitvj6/
 2. SPI 版：`VCC / GND / SCK / MOSI / CS / DC / RST`
 
 > 具体引脚定义以你上传的原理图和 PCB 丝印为准。
+
+## 注意事项
+- I2C版本的地址选择电阻根据实际需求焊接其中一个，不可两个同时焊接
 
 ## 开源资料
 

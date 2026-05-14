@@ -1,33 +1,21 @@
----
+﻿---
 title: Arduino OLED 显示实战
-createTime: 2025/01/09 00:00:00
-updatedAt: 2025/01/09 00:00:00
-platform: Arduino
-level: 进阶
-series: Arduino 系列教程
-order: 3
-tags:
-  - Arduino
-  - OLED
-  - 进阶
-permalink: /tutorials/dct6rbqu/
+createTime: 2025/01/03 00:00:00
+permalink: /tutorials/arduino/03-oled/
 ---
 
 # Arduino OLED 显示实战
 
-## 你将学到什么
-- I2C 屏幕驱动基础
-- 页面刷新与布局优化
+## 目标
+- 使用 I2C OLED 显示文本
+- 了解页面刷新与字体设置
+- 构建简单信息面板
 
 ## 硬件准备
-- Arduino UNO/Nano
+- Arduino 开发板
 - 0.96 寸 I2C OLED
 
-## 步骤
-1. 引入显示库并初始化。
-2. 绘制文本与图形。
-3. 结合传感器数据显示。
-
-## 常见问题
-- I2C 地址不匹配
-- 刷新闪烁
+## 实践步骤
+1. 安装 OLED 显示库。
+2. 初始化屏幕并打印文字。
+3. 增加刷新逻辑显示实时数据。
