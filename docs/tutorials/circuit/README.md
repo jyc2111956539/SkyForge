@@ -7,7 +7,7 @@ permalink: /tutorials/circuit/
 # 电路专题教程
 本栏目只放“教程型内容”：讲原理、讲方法、讲设计过程。
 
-下载型资料（PDF / DOCX / ZIP）统一放在 [技术资料库](/resources/)。
+下载型资料（PDF / DOCX / ZIP）统一放在 [资料库](/resources/)。
 
 ## 目录
 1. [技术资料编写规范（v1.0）](/tutorials/circuit/00-tech-doc-standard.html)

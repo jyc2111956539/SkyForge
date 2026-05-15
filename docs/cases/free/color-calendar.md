@@ -4,7 +4,7 @@ createTime: 2026/05/12 00:00:00
 tags:
   - 开发中
   - 显示
-permalink: /designs/9ml2ymso/
+permalink: /cases/9ml2ymso/
 ---
 
 # 多功能彩屏台历

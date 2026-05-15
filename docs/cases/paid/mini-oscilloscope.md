@@ -1,15 +1,15 @@
 ---
 title: Mini 示波器（预览）
 createTime: 2025/01/15 00:00:00
-cover: /images/designs/mini-oscilloscope.svg
+cover: /images/cases/mini-oscilloscope.svg
 tags:
   - 付费
   - 预览
 excerpt: Mini 示波器项目预览，含功能介绍与交付说明
-permalink: /designs/cfo7qpzi/
+permalink: /cases/cfo7qpzi/
 ---
 
-![Mini 示波器预览封面](/images/designs/mini-oscilloscope.svg)
+![Mini 示波器预览封面](/images/cases/mini-oscilloscope.svg)
 
 ## 项目简介
 Mini 示波器定位为便携调试工具，主打轻量、快速上手与低成本。

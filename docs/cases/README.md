@@ -1,9 +1,9 @@
-﻿---
+---
 title: 案例实战
-pageClass: designs-gallery
+pageClass: cases-gallery
 aside: false
 createTime: 2026/05/11 15:42:39
-permalink: /designs/
+permalink: /cases/
 comments: false
 ---
 

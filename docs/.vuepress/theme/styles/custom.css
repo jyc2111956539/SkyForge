@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   /** 主题颜色 */
 
   /*
@@ -113,7 +113,7 @@
 }
 
 /* Hide reading-time on top-level hub pages */
-.designs-gallery .vp-doc-meta .reading-time,
+.cases-gallery .vp-doc-meta .reading-time,
 .resources-hub .vp-doc-meta .reading-time {
   display: none !important;
 }
@@ -490,16 +490,16 @@
   }
 }
 
-/* Custom width only for resources and designs */
+/* Custom width only for resources and cases */
 .resources-hub .vp-doc-container .aside,
-.designs-gallery .vp-doc-container .aside {
+.cases-gallery .vp-doc-container .aside {
   display: none !important;
 }
 
 .resources-hub .vp-doc-container .container,
 .resources-hub .vp-doc-container.has-aside .container,
-.designs-gallery .vp-doc-container .container,
-.designs-gallery .vp-doc-container.has-aside .container {
+.cases-gallery .vp-doc-container .container,
+.cases-gallery .vp-doc-container.has-aside .container {
   display: block !important;
   max-width: 1460px !important;
   width: 100% !important;
@@ -509,16 +509,16 @@
 .resources-hub .vp-doc-container .content,
 .resources-hub .vp-doc-container .content-container,
 .resources-hub .vp-doc-container main.main,
-.designs-gallery .vp-doc-container .content,
-.designs-gallery .vp-doc-container .content-container,
-.designs-gallery .vp-doc-container main.main {
+.cases-gallery .vp-doc-container .content,
+.cases-gallery .vp-doc-container .content-container,
+.cases-gallery .vp-doc-container main.main {
   width: 100% !important;
   max-width: none !important;
   margin: 0 !important;
 }
 
 .resources-hub .vp-doc,
-.designs-gallery .vp-doc {
+.cases-gallery .vp-doc {
   width: 100% !important;
   max-width: none !important;
   padding-left: 20px !important;
@@ -558,3 +558,12 @@
 }
 
 
+
+/* Home navbar internals transparent to remove white strip */
+.vp-navbar.home .content-body,
+.vp-navbar.home.top .content-body,
+.vp-navbar.home .content,
+.vp-navbar.home.top .content {
+  background: transparent !important;
+  box-shadow: none !important;
+}

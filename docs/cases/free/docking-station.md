@@ -1,4 +1,4 @@
-﻿---
+---
 title: 0.96/1.3寸OLED模块
 createTime: 2025/01/24 00:00:00
 cover: ''
@@ -7,7 +7,7 @@ tags:
   - 显示模块
   - 开源硬件
 excerpt: 四版本OLED显示模块（0.96/1.3寸、I2C/SPI），统一3.3V供电，适配嵌入式状态显示与人机交互
-permalink: /designs/99jitvj6/
+permalink: /cases/99jitvj6/
 comments: true
 ---
 

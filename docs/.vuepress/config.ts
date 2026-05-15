@@ -10,9 +10,9 @@ export default defineUserConfig({
   // 本地开发用 '/'，GitHub Pages 仓库页构建时用 '/skyforge/'
   base: isProd ? '/skyforge/' : '/',
   title: '凌云工坊',
-  description: '嵌入式技术教程与案例实战分享',
+  description: '嵌入式教程体系、技术笔记、资料库与案例实战分享',
   head: [
-    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['link', { rel: 'icon', type: 'image/png', href: '/images/logo/skyforge-logo-icon.png' }],
     ['meta', { name: 'author', content: 'SkyForge' }],
   ],
   bundler: viteBundler(),

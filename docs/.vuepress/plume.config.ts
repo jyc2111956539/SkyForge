@@ -1,14 +1,14 @@
-﻿import { defineThemeConfig } from 'vuepress-theme-plume'
+import { defineThemeConfig } from 'vuepress-theme-plume'
 
 export default defineThemeConfig({
-  logo: '/logo.png',
+  logo: '/images/logo/skyforge-logo-icon.png',
 
   navbar: [
     { text: '首页', link: '/' },
-    { text: '技术教程', link: '/tutorials/' },
-    { text: '技术文章', link: '/blog/' },
-    { text: '技术资料库', link: '/resources/' },
-    { text: '案例实战', link: '/designs/' },
+    { text: '教程体系', link: '/tutorials/' },
+    { text: '技术笔记', link: '/blog/' },
+    { text: '资料库', link: '/resources/' },
+    { text: '案例实战', link: '/cases/' },
     { text: '周边商城', link: '/store/' },
     { text: '关于我们', link: '/about/' },
   ],
@@ -17,20 +17,20 @@ export default defineThemeConfig({
     {
       type: 'doc',
       dir: 'tutorials',
-      title: '技术教程',
+      title: '教程体系',
       link: '/tutorials/',
     },
     {
       type: 'post',
       dir: 'blog',
-      title: '技术文章',
+      title: '技术笔记',
       link: '/blog/',
     },
     {
       type: 'doc',
-      dir: 'designs',
+      dir: 'cases',
       title: '案例实战',
-      link: '/designs/',
+      link: '/cases/',
     },
   ],
 

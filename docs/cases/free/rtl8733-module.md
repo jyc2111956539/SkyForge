@@ -1,4 +1,4 @@
-﻿---
+---
 title: RTL8733模块
 createTime: 2026/05/13 00:00:00
 tags:
@@ -7,7 +7,7 @@ tags:
   - 蓝牙
   - USB
 excerpt: 基于RTL8733模组的USB蓝牙WiFi二合一模块，适配RK3506等无多余SDIO接口的开发板
-permalink: /designs/l47we44x/
+permalink: /cases/l47we44x/
 ---
 
 # RTL8733模块

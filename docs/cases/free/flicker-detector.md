@@ -1,4 +1,4 @@
-﻿---
+---
 title: 频闪检测仪
 createTime: 2025/01/20 00:00:00
 cover: ''
@@ -7,7 +7,7 @@ tags:
   - 检测仪
   - 实用工具
 excerpt: 用于检测照明频闪特性的便携工具，支持基础频闪指标观察
-permalink: /designs/1o5430oh/
+permalink: /cases/1o5430oh/
 ---
 
 # 频闪检测仪

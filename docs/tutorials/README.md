@@ -1,13 +1,13 @@
 ﻿---
-title: 技术教程
+title: 教程体系
 createTime: 2026/05/11 15:42:39
 permalink: /tutorials/
 comments: false
 ---
 
-# 技术教程
+# 教程体系
 
-技术教程采用“系列目录 + 文章”形式组织，先选系列，再进入目录逐篇学习。
+教程体系采用“系列目录 + 文章”形式组织，先选系列，再进入目录逐篇学习。
 
 <VPCardGrid>
   <VPLinkCard
@@ -37,4 +37,4 @@ comments: false
   />
 </VPCardGrid>
 
-> 下载型资料（PDF / DOCX / ZIP）请前往 [技术资料库](/resources/)。
+> 下载型资料（PDF / DOCX / ZIP）请前往 [资料库](/resources/)。
