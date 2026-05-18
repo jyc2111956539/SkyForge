@@ -12,6 +12,7 @@
     "docs:dev-clean": "vuepress dev docs --clean-cache --clean-temp",
     "docs:preview": "http-server docs/.vuepress/dist",
     "hooks:install": "node scripts/install-hooks.mjs",
+    "resources:sync": "node scripts/sync-resources.mjs",
     "vp-update": "npx vp-update"
   },
   "devDependencies": {

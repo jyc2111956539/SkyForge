@@ -52,7 +52,7 @@ type Item = {
   id: string
   title: string
   desc: string
-  format: 'PDF' | 'DOCX' | 'ZIP'
+  format: string
   module: string
   tags: string[]
   updatedAt: string
@@ -65,25 +65,107 @@ const keyword = ref('')
 const currentPage = ref(1)
 const pageSize = 9
 
-const moduleOptions = [
-  { label: '全部', value: 'all' },
-  { label: '单片机与嵌入式', value: '单片机与嵌入式' },
-  { label: '网络通信', value: '网络通信' },
-  { label: 'USB开发', value: 'USB开发' },
-  { label: '模拟电子', value: '模拟电子' },
-  { label: '电源设计', value: '电源设计' },
-  { label: '工具链与工程化', value: '工具链与工程化' },
-] as const
-
-const items: Item[] = [
-  { id: 'r1', title: 'STM32 MQTT 通信入门资料包', desc: '包含最小连接流程、配置说明与抓包示例。', format: 'ZIP', module: '网络通信', tags: ['STM32', 'MQTT', '源码'], updatedAt: '2026-05-12', url: '/downloads/toolchain-template.zip' },
-  { id: 'r2', title: 'ARM 启动流程速查', desc: '覆盖向量表、启动文件和异常入口。', format: 'PDF', module: '单片机与嵌入式', tags: ['ARM', '启动'], updatedAt: '2026-05-12', url: '/downloads/arm-startup-notes.pdf' },
-  { id: 'r3', title: 'USB 转串口调试清单', desc: '常见驱动、波特率与掉线问题定位。', format: 'DOCX', module: 'USB开发', tags: ['USB', '调试'], updatedAt: '2026-05-12', url: '/downloads/filter-checklist-v1.docx' },
-  { id: 'r4', title: '滤波器选型与验算表', desc: '频段、纹波与相位裕量的设计模板。', format: 'DOCX', module: '模拟电子', tags: ['滤波器', '模拟电子'], updatedAt: '2026-05-12', url: '/downloads/filter-checklist-v1.docx' },
-  { id: 'r5', title: '放大电路设计资料包', desc: '原理图、仿真工程与失真问题说明。', format: 'ZIP', module: '模拟电子', tags: ['放大电路', '原理图', 'PCB'], updatedAt: '2026-05-12', url: '/downloads/amplifier-design-pack.zip' },
-  { id: 'r6', title: '开关电源设计指南', desc: 'Buck/Boost 设计流程与稳定性检查项。', format: 'PDF', module: '电源设计', tags: ['电源设计', '开关电源'], updatedAt: '2026-05-12', url: '/downloads/smps-guide-v1.pdf' },
-  { id: 'r7', title: '嵌入式工具链模板工程', desc: '统一目录结构、编译脚本与调试配置。', format: 'ZIP', module: '工具链与工程化', tags: ['工具链', '工程化'], updatedAt: '2026-05-12', url: '/downloads/toolchain-template.zip' },
+const preferredModuleOrder = [
+  '单片机与嵌入式',
+  '网络通信',
+  'USB开发',
+  '模拟电子',
+  '电源设计',
+  '工具链与工程化',
 ]
+
+const mdModules = import.meta.glob('../../resources/items/*.md', {
+  eager: true,
+  query: '?raw',
+  import: 'default',
+}) as Record<string, string>
+
+const stripQuotes = (value: string) => value.replace(/^["']|["']$/g, '').trim()
+
+const parseTags = (raw: string, lines: string[], startIndex: number): { tags: string[]; nextIndex: number } => {
+  const inlineMatch = raw.match(/^tags:\s*\[(.*)\]\s*$/)
+  if (inlineMatch) {
+    const tags = inlineMatch[1]
+      .split(',')
+      .map((item) => stripQuotes(item))
+      .filter(Boolean)
+    return { tags, nextIndex: startIndex }
+  }
+
+  if (/^tags:\s*$/.test(raw)) {
+    const tags: string[] = []
+    let idx = startIndex + 1
+    while (idx < lines.length) {
+      const line = lines[idx]
+      if (!/^\s*-\s+/.test(line)) break
+      tags.push(stripQuotes(line.replace(/^\s*-\s+/, '')))
+      idx += 1
+    }
+    return { tags, nextIndex: idx - 1 }
+  }
+
+  return { tags: [], nextIndex: startIndex }
+}
+
+const parseFrontmatter = (source: string): Record<string, string | string[]> => {
+  const matched = source.match(/^\uFEFF?---\r?\n([\s\S]*?)\r?\n---/)
+  if (!matched) return {}
+
+  const lines = matched[1].split(/\r?\n/)
+  const data: Record<string, string | string[]> = {}
+
+  for (let i = 0; i < lines.length; i += 1) {
+    const line = lines[i].trim()
+    if (!line || line.startsWith('#')) continue
+
+    if (line.startsWith('tags:')) {
+      const { tags, nextIndex } = parseTags(line, lines, i)
+      data.tags = tags
+      i = nextIndex
+      continue
+    }
+
+    const kv = line.match(/^([A-Za-z0-9_]+):\s*(.+)$/)
+    if (!kv) continue
+
+    const key = kv[1]
+    const value = stripQuotes(kv[2])
+    data[key] = value
+  }
+
+  return data
+}
+
+const items: Item[] = Object.entries(mdModules)
+  .filter(([path]) => {
+    const fileName = path.split('/').pop() ?? ''
+    return !fileName.startsWith('_')
+  })
+  .map(([path, raw]) => {
+    const fm = parseFrontmatter(raw)
+    const fileName = path.split('/').pop()?.replace(/\.md$/, '') ?? `item-${Math.random().toString(36).slice(2, 8)}`
+    return {
+      id: String(fm.id ?? fileName),
+      title: String(fm.title ?? fileName),
+      desc: String(fm.desc ?? ''),
+      format: String(fm.format ?? 'ZIP').toUpperCase(),
+      module: String(fm.module ?? '未分类'),
+      tags: Array.isArray(fm.tags) ? fm.tags.map((t) => String(t)).filter(Boolean) : [],
+      updatedAt: String(fm.updatedAt ?? ''),
+      url: String(fm.url ?? '#'),
+    }
+  })
+  .filter((item) => item.url !== '#')
+  .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))
+
+const moduleOptions = computed(() => {
+  const available = [...new Set(items.map((item) => item.module))]
+  const ordered = [
+    ...preferredModuleOrder.filter((name) => available.includes(name)),
+    ...available.filter((name) => !preferredModuleOrder.includes(name)).sort((a, b) => a.localeCompare(b)),
+  ]
+  return [{ label: '全部', value: 'all' }, ...ordered.map((name) => ({ label: name, value: name }))]
+})
 
 const baseItems = computed(() =>
   items.filter((item) => {
