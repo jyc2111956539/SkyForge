@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+﻿import fs from 'node:fs'
 import path from 'node:path'
 import { execFileSync } from 'node:child_process'
 
@@ -8,6 +8,7 @@ const sourceDirName = process.env.RESOURCE_SOURCE_DIR ?? '技术资料'
 const repoRef = process.env.RESOURCE_REPO_REF ?? 'master'
 const syncMode = (process.env.RESOURCE_SYNC_MODE ?? 'remote').toLowerCase() // remote | clone
 const strictMode = (process.env.RESOURCE_SYNC_STRICT ?? '1') !== '0'
+const indexFile = process.env.RESOURCE_INDEX_FILE ?? 'resources.index.json'
 const itemsDir = path.resolve(repoRoot, process.env.RESOURCE_ITEMS_DIR ?? 'docs/resources/items')
 const tempDir = path.resolve(repoRoot, '.tmp_resource_sync')
 const today = new Date().toISOString().slice(0, 10)
@@ -137,10 +138,34 @@ async function fetchJson(url) {
   return res.json()
 }
 
+async function fetchMaybeJson(url) {
+  const res = await fetch(url, { headers: { Accept: 'application/json' } })
+  if (res.status === 404) return null
+  if (!res.ok) fail(`HTTP ${res.status} for ${url}`)
+  return res.json()
+}
+
 async function fetchText(url) {
   const res = await fetch(url)
   if (!res.ok) fail(`HTTP ${res.status} for ${url}`)
   return res.text()
+}
+
+async function mapLimit(list, limit, worker) {
+  const out = new Array(list.length)
+  let cursor = 0
+
+  async function run() {
+    while (true) {
+      const idx = cursor++
+      if (idx >= list.length) return
+      out[idx] = await worker(list[idx], idx)
+    }
+  }
+
+  const runners = Array.from({ length: Math.max(1, Math.min(limit, list.length)) }, () => run())
+  await Promise.all(runners)
+  return out
 }
 
 async function listRemoteTree(owner, repo, rootPath, ref) {
@@ -182,15 +207,54 @@ function findBundleDownloadTargetRemote(allFiles, bundleRelPath) {
   return zipLike ?? files[0]
 }
 
+function normalizeIndexItems(rows, repoHttpBase, ref) {
+  return rows
+    .map((row) => {
+      const mode = String(row.mode || 'file').toLowerCase()
+      const relPath = String(row.path || '').replace(/\\/g, '/')
+      const title = String(row.title || '').trim()
+      const moduleName = String(row.module || '').trim()
+      const tags = Array.isArray(row.tags) ? row.tags.map((t) => String(t).trim()).filter(Boolean) : []
+      const descRaw = String(row.desc || '').trim()
+      const format = String(row.format || (mode === 'bundle' ? 'BUNDLE' : getFormatFromExt(path.extname(relPath))))
+      const url = String(row.url || (relPath ? `${repoHttpBase}/raw/${ref}/${encodePath(relPath)}` : '')).trim()
+      return {
+        id: row.id ? String(row.id).trim() : undefined,
+        title: title.replace(/"/g, '\\"'),
+        desc: (descRaw || `来源：${relPath}`).replace(/\\/g, '/').replace(/"/g, '\\"'),
+        format,
+        module: moduleName.replace(/"/g, '\\"'),
+        tags,
+        updatedAt: row.updatedAt || today,
+        url,
+      }
+    })
+    .filter((r) => r.title && r.module && r.tags.length > 0 && r.url)
+}
+
 async function itemsFromMetadataRemote(owner, repo, ref, repoHttpBase) {
+  const indexUrl = `${repoHttpBase}/raw/${ref}/${encodePath(indexFile)}`
+  const indexJson = await fetchMaybeJson(indexUrl)
+  if (indexJson) {
+    const rows = Array.isArray(indexJson) ? indexJson : Array.isArray(indexJson.items) ? indexJson.items : []
+    const normalized = normalizeIndexItems(rows.filter(Boolean), repoHttpBase, ref)
+    if (normalized.length > 0) return normalized
+  }
+
   const allFiles = await listRemoteTree(owner, repo, sourceDirName, ref)
   const metadataFiles = allFiles.filter((f) => f.path.endsWith('.resource.yml') || f.path.endsWith('.resource.yaml'))
   const idSet = new Set()
   const items = []
 
-  for (const metaFile of metadataFiles) {
+  const parsedMetas = await mapLimit(metadataFiles, 8, async (metaFile) => {
     const metaRaw = await fetchText(metaFile.downloadUrl || `${repoHttpBase}/raw/${ref}/${encodePath(metaFile.path)}`)
     const meta = parseSimpleYaml(metaRaw)
+    return { metaFile, meta }
+  })
+
+  for (const entry of parsedMetas) {
+    const metaFile = entry.metaFile
+    const meta = entry.meta
 
     const mode = String(meta.mode || 'file').toLowerCase()
     const relPath = String(meta.path || '').replace(/\\/g, '/')
@@ -367,9 +431,7 @@ async function main() {
     fail(`Unsupported RESOURCE_SYNC_MODE: ${syncMode}. Use "remote" or "clone".`)
   }
 
-  if (items.length === 0) {
-    fail(`No valid resource items generated in ${syncMode} mode.`)
-  }
+  if (items.length === 0) fail(`No valid resource items generated in ${syncMode} mode.`)
 
   items.forEach((item, idx) => writeDocItem(item, idx + 1))
   console.log(`Synced ${items.length} resource items from ${repoUrl} via ${syncMode} mode`)

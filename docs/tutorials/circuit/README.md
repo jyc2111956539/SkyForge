@@ -11,8 +11,7 @@ permalink: /tutorials/circuit/
 
 ## 目录
 1. [技术资料编写规范（v1.0）](/tutorials/circuit/00-tech-doc-standard.html)
-2. [示例资料资料](/tutorials/circuit/02-example-material.html)
-3. [放大电路设计资料](/tutorials/circuit/01-amplifier-design.html)
-4. [滤波器设计资料](/tutorials/stm32/04-filter-design.html)
-5. [开关电源设计资料](/tutorials/stm32/05-smps-design.html)
-6. [0.96/1.3寸OLED模块设计详解（I2C/SPI四版本）](/tutorials/circuit/03-oled-module-design.html)
+2. [放大电路设计资料](/tutorials/circuit/01-amplifier-design.html)
+3. [滤波器设计资料](/tutorials/stm32/04-filter-design.html)
+4. [开关电源设计资料](/tutorials/stm32/05-smps-design.html)
+5. [0.96/1.3寸OLED模块设计详解（I2C/SPI四版本）](/tutorials/circuit/03-oled-module-design.html)

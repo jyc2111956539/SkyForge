@@ -59,6 +59,20 @@ npm run hooks:install
 npm run check:encoding
 ```
 
+## 网站仓库提交
+
+```sh
+# 1) 本地提交
+git add .
+git commit -m "提交说明"
+
+# 2) 推送到 Gitee
+git push origin master
+
+# 3) 推送到 GitHub
+git push github master
+```
+
 ## 文档
 
 - [VuePress](https://vuepress.vuejs.org/)

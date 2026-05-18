@@ -59,6 +59,20 @@ npm run hooks:install
 npm run check:encoding
 ```
 
+## Push Website Repo
+
+```sh
+# 1) commit locally
+git add .
+git commit -m "your message"
+
+# 2) push to gitee
+git push origin master
+
+# 3) push to github
+git push github master
+```
+
 ## Documents
 
 - [VuePress](https://vuepress.vuejs.org/)
