@@ -115,7 +115,7 @@ function getFormatFromExt(ext) {
 function writeDocItem(item, index) {
   const id = item.id || `r${String(index).padStart(4, '0')}`
   const filename = `${id}-${safeName(item.title)}.md`
-  const tags = [...new Set((item.tags ?? []).filter(Boolean))]
+  const tags = [...new Set((item.tags ?? []).map(normalizeTag).filter(Boolean))]
   const content = [
     '---',
     `id: ${id}`,
@@ -123,13 +123,20 @@ function writeDocItem(item, index) {
     `desc: "${item.desc}"`,
     `format: ${item.format}`,
     `module: "${item.module}"`,
-    `tags: [${tags.map((t) => `'${t}'`).join(', ')}]`,
+    `tags: [${tags.join(', ')}]`,
     `updatedAt: ${item.updatedAt || today}`,
     `url: "${item.url}"`,
     '---',
     '',
   ].join('\n')
   fs.writeFileSync(path.join(itemsDir, filename), content, 'utf8')
+}
+
+function normalizeTag(tag) {
+  return String(tag || '')
+    .trim()
+    .replace(/^['"]+/, '')
+    .replace(/['"]+$/, '')
 }
 
 async function fetchJson(url) {
