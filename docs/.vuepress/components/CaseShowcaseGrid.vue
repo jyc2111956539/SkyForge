@@ -1,8 +1,8 @@
-<template>
+﻿<template>
   <VPCard>
     <VPCardGrid :cols="{ sm: 1, md: 2, lg: 4 }" class="case-showcase-grid">
       <a v-for="item in items" :key="item.href" class="case-showcase-card" :href="item.href">
-        <img class="case-showcase-cover" :src="item.image || '/images/cases/placeholder.svg'" :alt="`${item.title}封面`" />
+        <img class="case-showcase-cover" :src="item.image || '/images/cases/placeholder.svg'" :alt="`${item.title}灏侀潰`" />
         <div class="case-showcase-body">
           <h3 class="case-showcase-title">{{ item.title }}</h3>
           <p class="case-showcase-desc">{{ item.description }}</p>
@@ -22,14 +22,14 @@ type CaseItem = {
 
 const items: CaseItem[] = [
   { title: '智能台灯控制器', description: '基于 STM32 的智能台灯控制方案。', href: '/cases/free/smart-lamp.html', image: '/images/cases/smart-lamp.svg' },
-  { title: '频闪检测仪', description: '用于对光源或屏幕的频闪检测的便携工具。', href: '/cases/free/flicker-detector.html', image: 'https://file.seecpp.top/seecpp/2026/05/5fcccc4e4c426a8a8d3561a34bf5645e.jpg' },
+  { title: '频闪检测仪', description: '用于对光源或屏幕的频闪特性进行检测的便携工具。', href: '/cases/free/flicker-detector.html', image: 'https://file.seecpp.top/seecpp/2026/05/5fcccc4e4c426a8a8d3561a34bf5645e.jpg' },
   { title: '便携电源', description: '适合调试场景的便携供电模块。', href: '/cases/free/portable-power.html' },
   { title: '桌面AI助手', description: '开发中。', href: '/cases/free/desktop-ai-assistant.html' },
   { title: 'USB转串口模块', description: '开发调试常用串口转换模块。', href: '/cases/free/usb-uart.html' },
   { title: '多功能彩屏台历', description: '开发中。', href: '/cases/free/color-calendar.html', image: 'https://file.seecpp.top/seecpp/2026/05/d4ad98bc92f7b9ede4c76f0e5a560010.png' },
   { title: 'RTL8733模块', description: '基于 RTL8733 模组的 USB 蓝牙 Wi-Fi 二合一模块。', href: '/cases/free/rtl8733-module.html', image: 'https://file.seecpp.top/seecpp/2026/05/1760cfacc5e5544e7a6da3d0e71b3678.png' },
-  { title: '轻量级个人使用电子ERP系统', description: '主要面向个人爱好者使用的电子 ERP，功能较为简单。', href: '/cases/free/personal-electronics-erp.html' },
-  { title: '0.96/1.3寸OLED模块', description: 'I2C/SPI 四版本 OLED 模块。', href: '/cases/free/docking-station.html' },
+  { title: '轻量级个人电子ERP系统', description: '主要面向个人爱好者使用的电子 ERP，功能较为简单。', href: '/cases/free/personal-electronics-erp.html' },
+  { title: '0.96/1.3寸OLED模块', description: 'I2C/SPI 四版本 OLED 模块。', href: '/cases/free/docking-station.html', image: 'https://file.seecpp.top/seecpp/2026/05/ba82d5f4e5a178d921c3a56516f9e0ba.png' },
   { title: 'Mini示波器（预览）', description: '掌上示波器项目预览页，完整资料通过付费交付。', href: '/cases/paid/mini-oscilloscope.html', image: '/images/cases/mini-oscilloscope.svg' },
 ]
 </script>
@@ -87,3 +87,4 @@ const items: CaseItem[] = [
   overflow: hidden;
 }
 </style>
+

@@ -56,5 +56,5 @@ comments: false
 - 商务合作：`business@example.com`
 - GitHub：`https://github.com/your-username`
 
-你也可以通过站内页面反馈资料失效、链接错误或、内容勘误或提出建，我们会持续更新。
+你也可以通过站内页面反馈资料失效、链接错误或、内容勘误或提出建议，我们会持续更新。
 

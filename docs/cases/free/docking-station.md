@@ -1,7 +1,7 @@
 ---
 title: 0.96/1.3寸OLED模块
 createTime: 2025/01/24 00:00:00
-cover: ''
+cover: https://file.seecpp.top/seecpp/2026/05/ba82d5f4e5a178d921c3a56516f9e0ba.png
 tags:
   - OLED
   - 显示模块
