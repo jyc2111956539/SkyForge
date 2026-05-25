@@ -1,4 +1,4 @@
-﻿import { defineCollection, defineCollections } from 'vuepress-theme-plume'
+import { defineCollection, defineCollections } from 'vuepress-theme-plume'
 
 const blog = defineCollection({
   type: 'post',

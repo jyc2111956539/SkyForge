@@ -1,4 +1,4 @@
-﻿---
+---
 title: ARM 启动与向量表
 createTime: 2025/01/02 00:00:00
 permalink: /tutorials/arm/02-startup-vector/

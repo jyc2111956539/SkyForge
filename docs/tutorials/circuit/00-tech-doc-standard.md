@@ -1,4 +1,4 @@
-﻿---
+---
 title: 电路设计技术资料编写规范（v1.0）
 createTime: 2025/01/05 00:00:00
 permalink: /tutorials/circuit/00-tech-doc-standard/

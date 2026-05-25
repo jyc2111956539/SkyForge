@@ -1,4 +1,4 @@
-﻿---
+---
 title: 0.96/1.3 寸 OLED 模块设计详解（I2C/SPI 四版本）
 createTime: 2025/05/13 09:00:00
 permalink: /tutorials/circuit/03-oled-module-design/

@@ -1,4 +1,4 @@
-﻿# SkyForge 内部规范中心
+# SkyForge 内部规范中心
 
 > 位置：`standards/`（不在网站 `docs/` 下，不会被前台站点展示）
 

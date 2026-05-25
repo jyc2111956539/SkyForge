@@ -1,4 +1,4 @@
-﻿# sky-forge
+# sky-forge
 
 The site is built with [VuePress](https://vuepress.vuejs.org/) and [vuepress-theme-plume](https://github.com/pengzhanbo/vuepress-theme-plume).
 

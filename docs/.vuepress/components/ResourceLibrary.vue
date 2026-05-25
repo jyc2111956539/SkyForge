@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div class="rl-wrap">
     <div class="hub-search-inline">
       <input v-model.trim="keyword" class="hub-search-input" type="text" placeholder="输入关键词搜索" />

@@ -5,8 +5,8 @@ tags:
   - ERP
   - 管理系统
   - 规划中
-excerpt: 主要面向个人爱好者使用的电子ERP，功能较为简单
-permalink: /cases/1rnsoei4/
+excerpt: 规划阶段，主要面向个人爱好者使用的电子ERP，功能较为简单
+permalink: /cases/personal-electronics-erp/
 ---
 
 # 轻量级个人使用电子ERP系统

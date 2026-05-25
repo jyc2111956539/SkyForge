@@ -52,9 +52,8 @@ comments: false
 
 ## 联系我们
 
-- 技术反馈：`your-email@example.com`
-- 商务合作：`business@example.com`
-- GitHub：`https://github.com/your-username`
+- 技术反馈：`SkyForgeLy@163.com`
+- 商务合作：`SkyForgeLy@163.com`
 
 你也可以通过站内页面反馈资料失效、链接错误或、内容勘误或提出建议，我们会持续更新。
 

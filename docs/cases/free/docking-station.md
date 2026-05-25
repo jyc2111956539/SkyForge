@@ -6,8 +6,8 @@ tags:
   - OLED
   - 显示模块
   - 开源硬件
-excerpt: 四版本OLED显示模块（0.96/1.3寸、I2C/SPI），统一3.3V供电，适配嵌入式状态显示与人机交互
-permalink: /cases/99jitvj6/
+excerpt: 四版本OLED显示模块（0.96/1.3寸、I2C/SPI），适配嵌入式状态显示与人机交互
+permalink: /cases/oled-module/
 comments: true
 ---
 
@@ -55,11 +55,6 @@ comments: true
 - 原理图：已包含在工程源文件中
 - PCB：已包含在工程源文件中
 - BOM：可从工程中导出
-
-## 详细技术文档
-
-完整设计说明见：
-[0.96/1.3寸OLED模块设计详解（I2C/SPI四版本）](/tutorials/circuit/03-oled-module-design.html)
 
 ## 接口版本实物图
 

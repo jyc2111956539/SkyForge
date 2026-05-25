@@ -1,4 +1,4 @@
-﻿---
+---
 title: Arduino 传感器采集
 createTime: 2025/01/02 00:00:00
 permalink: /tutorials/arduino/02-sensor/

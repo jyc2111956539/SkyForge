@@ -1,4 +1,4 @@
-﻿---
+---
 title: 放大电路设计入门
 createTime: 2025/01/06 00:00:00
 permalink: /tutorials/circuit/01-amplifier-design/

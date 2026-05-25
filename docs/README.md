@@ -1,4 +1,4 @@
-﻿---
+---
 home: true
 footer: false
 config:

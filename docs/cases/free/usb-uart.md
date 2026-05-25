@@ -7,7 +7,7 @@ tags:
   - 调试工具
   - 开源
 excerpt: 开发调试常用的 USB 转串口模块设计资料
-permalink: /cases/dllmryr1/
+permalink: /cases/usb-uart/
 ---
 
 ## 项目简介

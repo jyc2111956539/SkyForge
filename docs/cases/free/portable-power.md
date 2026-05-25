@@ -6,8 +6,8 @@ tags:
   - 电源
   - 便携
   - 实用工具
-excerpt: 适合外出调试场景的便携式供电方案，支持多电压输出
-permalink: /cases/36j6434k/
+excerpt: 规划阶段，适合外出调试场景的便携式供电方案，支持多电压输出
+permalink: /cases/portable-power/
 ---
 
 ## 项目简介
