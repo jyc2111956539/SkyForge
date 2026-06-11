@@ -8,6 +8,7 @@ import { defineClientConfig } from 'vuepress/client'
 import ResourceLibrary from './components/ResourceLibrary.vue'
 import CaseShowcaseGrid from './components/CaseShowcaseGrid.vue'
 import HomeCustomHero from './components/HomeCustomHero.vue'
+import BulletinContent from './components/BulletinContent.vue'
 
 import './theme/styles/custom.css'
 
@@ -24,6 +25,6 @@ export default defineClientConfig({
     app.component('ResourceLibrary', ResourceLibrary)
     app.component('CaseShowcaseGrid', CaseShowcaseGrid)
     app.component('HomeCustomHero', HomeCustomHero)
+    app.component('BulletinContent', BulletinContent)
   },
 })
-

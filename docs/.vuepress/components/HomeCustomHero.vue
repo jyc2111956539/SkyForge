@@ -8,7 +8,7 @@
       <p class="hero-subtitle" :style="subtitleStyle">{{ subtitle }}</p>
       <p class="hero-desc" :style="descStyle">{{ description }}</p>
 
-      <VPCardGrid :cols="{ sm: 1, md: 2, lg: 4 }" class="hero-grid" :style="gridStyle">
+      <VPCardGrid :cols="{ sm: 1, md: 2, lg: 5 }" class="hero-grid" :style="gridStyle">
         <a class="hero-card-link" :href="withBase('/tutorials/')">
           <VPCard title="教程体系">
             <template #title>
@@ -51,6 +51,19 @@
               </header>
             </template>
             <p class="hero-card-desc">展示电子与软件项目案例，包含方案简介、设计思路与关键资料入口，支持预览浏览和深入查看。</p>
+          </VPCard>
+        </a>
+        <a class="hero-card-link" href="https://aisee.wiki/" target="_blank" rel="noreferrer">
+          <VPCard title="AISEE">
+            <template #title>
+              <header class="hero-card-title">
+                <span class="hero-card-emoji">🔗</span>
+                <span class="hero-card-title-text">AISEE</span>
+              </header>
+            </template>
+            <p class="hero-card-desc">
+              AISEE Wiki是围绕 OpenSpec、Compound Engineering 与 AISEE 工作流建立的独立实践与方法论站点。
+            </p>
           </VPCard>
         </a>
       </VPCardGrid>
@@ -244,6 +257,34 @@ const gridStyle = computed(() => ({ marginTop: `calc(26px + ${props.cardOffsetY}
 
 .hero-footer p {
   margin: 0;
+}
+
+[data-theme="dark"] .hero-title {
+  color: #f8fafc;
+  text-shadow: 0 10px 30px rgba(15, 23, 42, 0.62);
+}
+
+[data-theme="dark"] .home-custom-hero {
+  background: #020617;
+}
+
+[data-theme="dark"] .hero-bg {
+  display: none;
+}
+
+[data-theme="dark"] .hero-mask {
+  background: linear-gradient(180deg, #020617 0%, #0f172a 100%) !important;
+  opacity: 1 !important;
+}
+
+[data-theme="dark"] .hero-subtitle {
+  color: #dbeafe;
+  text-shadow: 0 8px 24px rgba(15, 23, 42, 0.58);
+}
+
+[data-theme="dark"] .hero-desc {
+  color: #cbd5e1;
+  text-shadow: 0 6px 18px rgba(15, 23, 42, 0.52);
 }
 
 @media (max-width: 960px) {

@@ -18,6 +18,6 @@ config:
   title-size="76px"
   subtitle-size="54px"
   desc-size="24px"
-  card-offset-y="100px"
+  card-offset-y="90px"
   content-align="center"
 />

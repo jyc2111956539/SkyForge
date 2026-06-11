@@ -25,6 +25,17 @@ export default defineThemeConfig({
       dir: 'blog',
       title: '技术笔记',
       link: '/blog/',
+      profile: {
+        avatar: '/images/logo/skyforge-logo-icon.png',
+        name: 'SkyForge',
+        description: '嵌入式开发、工具链实践与项目复盘',
+        location: 'China',
+        organization: 'AISEE-LAB',
+        layout: 'right',
+      },
+      social: [
+        { icon: 'github', link: 'https://github.com/AISEE-LAB/SkyForge' },
+      ],
     },
     {
       type: 'doc',
@@ -61,6 +72,23 @@ export default defineThemeConfig({
   footer: {
     message: '凌云工坊 SkyForge',
     copyright: 'Copyright © 2025-present SkyForge',
+  },
+
+  profile: {
+    avatar: '/images/logo/skyforge-logo-icon.png',
+    name: 'SkyForge',
+    description: '嵌入式开发、工具链实践与项目复盘',
+    location: 'China',
+    organization: 'AISEE-LAB',
+    layout: 'right',
+  },
+
+  bulletin: {
+    layout: 'top-right',
+    border: true,
+    lifetime: 'always',
+    title: '关注 AISEE 公众号',
+    enablePage: (page) => page.path === '/',
   },
 
   social: [

@@ -1,0 +1,46 @@
+<svg width="640" height="640" viewBox="0 0 640 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="640" rx="48" fill="#F8FAFC"/>
+  <rect x="72" y="72" width="496" height="496" rx="28" fill="#E2E8F0"/>
+  <rect x="104" y="104" width="120" height="120" rx="18" fill="#0F172A"/>
+  <rect x="120" y="120" width="88" height="88" rx="12" fill="#F8FAFC"/>
+  <rect x="136" y="136" width="56" height="56" rx="10" fill="#0F172A"/>
+  <rect x="416" y="104" width="120" height="120" rx="18" fill="#0F172A"/>
+  <rect x="432" y="120" width="88" height="88" rx="12" fill="#F8FAFC"/>
+  <rect x="448" y="136" width="56" height="56" rx="10" fill="#0F172A"/>
+  <rect x="104" y="416" width="120" height="120" rx="18" fill="#0F172A"/>
+  <rect x="120" y="432" width="88" height="88" rx="12" fill="#F8FAFC"/>
+  <rect x="136" y="448" width="56" height="56" rx="10" fill="#0F172A"/>
+  <rect x="280" y="104" width="24" height="24" rx="6" fill="#0F172A"/>
+  <rect x="328" y="104" width="24" height="24" rx="6" fill="#0F172A"/>
+  <rect x="280" y="152" width="24" height="24" rx="6" fill="#0F172A"/>
+  <rect x="328" y="152" width="24" height="24" rx="6" fill="#0F172A"/>
+  <rect x="280" y="200" width="24" height="24" rx="6" fill="#0F172A"/>
+  <rect x="328" y="200" width="72" height="24" rx="6" fill="#0F172A"/>
+  <rect x="256" y="280" width="24" height="24" rx="6" fill="#0F172A"/>
+  <rect x="304" y="280" width="24" height="24" rx="6" fill="#0F172A"/>
+  <rect x="352" y="280" width="24" height="24" rx="6" fill="#0F172A"/>
+  <rect x="400" y="280" width="24" height="24" rx="6" fill="#0F172A"/>
+  <rect x="448" y="280" width="24" height="24" rx="6" fill="#0F172A"/>
+  <rect x="496" y="280" width="24" height="24" rx="6" fill="#0F172A"/>
+  <rect x="256" y="328" width="72" height="24" rx="6" fill="#0F172A"/>
+  <rect x="352" y="328" width="24" height="24" rx="6" fill="#0F172A"/>
+  <rect x="400" y="328" width="72" height="24" rx="6" fill="#0F172A"/>
+  <rect x="256" y="376" width="24" height="24" rx="6" fill="#0F172A"/>
+  <rect x="304" y="376" width="24" height="24" rx="6" fill="#0F172A"/>
+  <rect x="352" y="376" width="72" height="24" rx="6" fill="#0F172A"/>
+  <rect x="448" y="376" width="24" height="24" rx="6" fill="#0F172A"/>
+  <rect x="496" y="376" width="24" height="24" rx="6" fill="#0F172A"/>
+  <rect x="280" y="424" width="24" height="24" rx="6" fill="#0F172A"/>
+  <rect x="328" y="424" width="72" height="24" rx="6" fill="#0F172A"/>
+  <rect x="424" y="424" width="24" height="24" rx="6" fill="#0F172A"/>
+  <rect x="472" y="424" width="48" height="24" rx="6" fill="#0F172A"/>
+  <rect x="256" y="472" width="72" height="24" rx="6" fill="#0F172A"/>
+  <rect x="352" y="472" width="24" height="24" rx="6" fill="#0F172A"/>
+  <rect x="400" y="472" width="24" height="24" rx="6" fill="#0F172A"/>
+  <rect x="448" y="472" width="72" height="24" rx="6" fill="#0F172A"/>
+  <rect x="280" y="520" width="24" height="24" rx="6" fill="#0F172A"/>
+  <rect x="328" y="520" width="24" height="24" rx="6" fill="#0F172A"/>
+  <rect x="376" y="520" width="24" height="24" rx="6" fill="#0F172A"/>
+  <rect x="424" y="520" width="24" height="24" rx="6" fill="#0F172A"/>
+  <text x="320" y="610" text-anchor="middle" fill="#334155" font-family="Arial, sans-serif" font-size="26">Replace with your QR code</text>
+</svg>

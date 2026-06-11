@@ -15,6 +15,11 @@ export default defineUserConfig({
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: `${base}images/logo/skyforge-logo-icon.png` }],
     ['meta', { name: 'author', content: 'SkyForge' }],
+    ['script', {
+      defer: true,
+      src: 'https://um.zerseager.com/script.js',
+      'data-website-id': '674f388e-4d9f-4d68-8e83-70f6bd1d6222',
+    }],
   ],
   bundler: viteBundler(),
   theme: plumeTheme(plumeThemeConfig),
