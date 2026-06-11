@@ -64,13 +64,13 @@ export default defineThemeConfig({
   },
 
   social: [
-    { icon: 'github', link: 'https://github.com/your-username' },
+    { icon: 'github', link: 'https://github.com/AISEE-LAB/SkyForge' },
   ],
 
   comment: {
     provider: 'Giscus',
     comment: true,
-    repo: 'jyc2111956539/SkyForge',
+    repo: 'AISEE-LAB/SkyForge',
     repoId: 'R_kgDOSbNuCA',
     category: 'General',
     categoryId: 'DIC_kwDOSbNuCM4C83S7',

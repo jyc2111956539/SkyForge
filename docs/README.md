@@ -7,7 +7,7 @@ config:
 ---
 
 <HomeCustomHero
-  image="/public/images/home/SkyForgeHomePage1.jpg"
+  image="/images/home/SkyForgeHomePage1.jpg"
   :mask-opacity="0.22"
   mask-color="#0b1220"
   content-x="50%"

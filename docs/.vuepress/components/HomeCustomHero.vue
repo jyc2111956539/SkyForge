@@ -9,7 +9,7 @@
       <p class="hero-desc" :style="descStyle">{{ description }}</p>
 
       <VPCardGrid :cols="{ sm: 1, md: 2, lg: 4 }" class="hero-grid" :style="gridStyle">
-        <a class="hero-card-link" href="/tutorials/">
+        <a class="hero-card-link" :href="withBase('/tutorials/')">
           <VPCard title="教程体系">
             <template #title>
               <header class="hero-card-title">
@@ -20,7 +20,7 @@
             <p class="hero-card-desc">覆盖 STM32、ESP32、Arduino 与 ARM 等主流方向，提供从环境搭建、基础外设到综合项目实战的连续学习路径。</p>
           </VPCard>
         </a>
-        <a class="hero-card-link" href="/blog/">
+        <a class="hero-card-link" :href="withBase('/blog/')">
           <VPCard title="技术笔记">
             <template #title>
               <header class="hero-card-title">
@@ -31,7 +31,7 @@
             <p class="hero-card-desc">记录开发过程中的问题排查、方案取舍与实践心得，内容偏工程实战，适合快速获取可落地经验。</p>
           </VPCard>
         </a>
-        <a class="hero-card-link" href="/resources/">
+        <a class="hero-card-link" :href="withBase('/resources/')">
           <VPCard title="资料库">
             <template #title>
               <header class="hero-card-title">
@@ -42,7 +42,7 @@
             <p class="hero-card-desc">集中整理 PDF、DOCX、ZIP 等可下载资料，按模块归类并配合标签检索，便于查阅、复用与二次开发。</p>
           </VPCard>
         </a>
-        <a class="hero-card-link" href="/cases/">
+        <a class="hero-card-link" :href="withBase('/cases/')">
           <VPCard title="案例实战">
             <template #title>
               <header class="hero-card-title">
@@ -84,7 +84,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  image: '/public/images/home/SkyForgeHomePage1.jpg',
+  image: '/images/home/SkyForgeHomePage1.jpg',
   maskOpacity: 0.22,
   maskColor: '#0b1220',
   contentX: '50%',

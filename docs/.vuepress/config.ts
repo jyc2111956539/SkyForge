@@ -3,16 +3,17 @@ import { defineUserConfig } from 'vuepress'
 import { plumeTheme } from 'vuepress-theme-plume'
 import plumeThemeConfig from './plume.config.js'
 
-const isProd = process.env.NODE_ENV === 'production'
+const base = process.env.VUEPRESS_BASE ?? '/'
 
 export default defineUserConfig({
   lang: 'zh-CN',
-  // 本地开发用 '/'，GitHub Pages 仓库页构建时用 '/skyforge/'
-  base: isProd ? '/skyforge/' : '/',
+  // 默认按根路径部署，适合 Cloudflare Pages / 自定义域名。
+  // 如果部署到子路径，例如 GitHub Pages 仓库页，再用 VUEPRESS_BASE 覆盖。
+  base,
   title: '凌云工坊',
   description: '嵌入式教程体系、技术笔记、资料库与案例实战分享',
   head: [
-    ['link', { rel: 'icon', type: 'image/png', href: '/images/logo/skyforge-logo-icon.png' }],
+    ['link', { rel: 'icon', type: 'image/png', href: `${base}images/logo/skyforge-logo-icon.png` }],
     ['meta', { name: 'author', content: 'SkyForge' }],
   ],
   bundler: viteBundler(),
